@@ -1,0 +1,232 @@
+	MuviDataValues data1 = boost::make_shared<MuviValues>();
+	for (int i=0; i<84; i++) {
+		data1->add( (float)rand()/(float)RAND_MAX );
+	}
+
+	MuviDataValues data2 = boost::make_shared<MuviValues>();
+	for (int i=0; i<84; i++) {
+		data2->add( (float)rand()/(float)RAND_MAX );
+	}
+
+	MuviDataValues data3 = boost::make_shared<MuviValues>();
+	for (int i=0; i<84; i++) {
+		data3->add( (float)rand()/(float)RAND_MAX );
+	}
+
+	MuviDataValues data4 = boost::make_shared<MuviValues>();
+	for (int i=0; i<84; i++) {
+		data4->add( (float)rand()/(float)RAND_MAX );
+	}
+
+	MuviDataValues data5 = boost::make_shared<MuviValues>();
+	for (int i=0; i<84; i++) {
+		data5->add( (float)rand()/(float)RAND_MAX );
+	}
+
+	MuviIndexValues index1 = boost::make_shared<MuviValues>();
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+	index1->add(0);
+
+	MuviIndexValues index2 = boost::make_shared<MuviValues>();
+	index2->add(0);
+	index2->add(0.2);
+	index2->add(0);
+	index2->add(0.2);
+	index2->add(0);
+	index2->add(0.2);
+	index2->add(0);
+	index2->add(0.2);
+	index2->add(0);
+	index2->add(0.2);
+	index2->add(0);
+	index2->add(0.2);
+	index2->add(0);
+	index2->add(0.2);
+	index2->add(0);
+	index2->add(0.2);
+	index2->add(0);
+	index2->add(0.2);
+	index2->add(0);
+	index2->add(0.2);
+	index2->add(0);
+	index2->add(0.2);
+	index2->add(0);
+	index2->add(0.2);
+	index2->add(0);
+	index2->add(0.2);
+	index2->add(0);
+	index2->add(0.2);
+	index2->add(0);
+	index2->add(0.2);
+	index2->add(0);
+	index2->add(0.2);
+
+	MuviIndexValues index3 = boost::make_shared<MuviValues>();
+	index3->add(0);
+	index3->add(0.4);
+	index3->add(0);
+	index3->add(0.4);
+	index3->add(0);
+	index3->add(0.4);
+	index3->add(0);
+	index3->add(0.4);
+	index3->add(0);
+	index3->add(0.4);
+	index3->add(0);
+	index3->add(0.4);
+	index3->add(0);
+	index3->add(0.4);
+	index3->add(0);
+	index3->add(0.4);
+	index3->add(0);
+	index3->add(0.4);
+	index3->add(0);
+	index3->add(0.4);
+	index3->add(0);
+	index3->add(0.4);
+	index3->add(0);
+	index3->add(0.4);
+	index3->add(0);
+	index3->add(0.4);
+	index3->add(0);
+	index3->add(0.4);
+	index3->add(0);
+	index3->add(0.4);
+	index3->add(0);
+	index3->add(0.4);
+
+	MuviIndexValues index4 = boost::make_shared<MuviValues>();
+	index4->add(0);
+	index4->add(0.8);
+	index4->add(0);
+	index4->add(0.8);
+	index4->add(0);
+	index4->add(0.8);
+	index4->add(0);
+	index4->add(0.8);
+	index4->add(0);
+	index4->add(0.8);
+	index4->add(0);
+	index4->add(0.8);
+	index4->add(0);
+	index4->add(0.8);
+	index4->add(0);
+	index4->add(0.8);
+	index4->add(0);
+	index4->add(0.8);
+	index4->add(0);
+	index4->add(0.8);
+	index4->add(0);
+	index4->add(0.8);
+	index4->add(0);
+	index4->add(0.8);
+	index4->add(0);
+	index4->add(0.8);
+	index4->add(0);
+	index4->add(0.8);
+	index4->add(0);
+	index4->add(0.8);
+	index4->add(0);
+	index4->add(0.8);
+
+	MuviIndexValues index5 = boost::make_shared<MuviValues>();
+	index5->add(0);
+	index5->add(1);
+	index5->add(0);
+	index5->add(1);
+	index5->add(0);
+	index5->add(1);
+	index5->add(0);
+	index5->add(1);
+	index5->add(0);
+	index5->add(1);
+	index5->add(0);
+	index5->add(1);
+	index5->add(0);
+	index5->add(1);
+	index5->add(0);
+	index5->add(1);
+	index5->add(0);
+	index5->add(1);
+	index5->add(0);
+	index5->add(1);
+	index5->add(0);
+	index5->add(1);
+	index5->add(0);
+	index5->add(1);
+	index5->add(0);
+	index5->add(1);
+	index5->add(0);
+	index5->add(1);
+	index5->add(0);
+	index5->add(1);
+	index5->add(0);
+	index5->add(1);
+	
+	MuviNeighboursPtr Neighbours = boost::make_shared<MuviNeighbours>();
+	Neighbours->add( data1, index1 );
+	Neighbours->add( data2, index2 );
+	Neighbours->add( data3, index3 );
+	Neighbours->add( data4, index4 );
+	Neighbours->add( data5, index5 );
+	Neighbours->add( data1, index1 );
+	Neighbours->add( data2, index2 );
+	Neighbours->add( data3, index3 );
+	Neighbours->add( data4, index4 );
+	Neighbours->add( data5, index5 );
+	Neighbours->add( data1, index1 );
+	Neighbours->add( data2, index2 );
+	Neighbours->add( data3, index3 );
+	Neighbours->add( data4, index4 );
+	Neighbours->add( data5, index5 );
+	Neighbours->add( data1, index1 );
+	Neighbours->add( data2, index2 );
+	Neighbours->add( data3, index3 );
+	Neighbours->add( data4, index4 );
+	Neighbours->add( data5, index5 );
+	Neighbours->add( data1, index1 );
+	Neighbours->add( data2, index2 );
+	Neighbours->add( data3, index3 );
+	Neighbours->add( data4, index4 );
+	Neighbours->add( data5, index5 );
+	Neighbours->add( data1, index1 );
+	Neighbours->add( data2, index2 );
+	Neighbours->add( data3, index3 );
+	Neighbours->add( data4, index4 );
+	Neighbours->add( data5, index5 );
+	Neighbours->add( data1, index1 );
+	Neighbours->add( data2, index2 );
+	
+	// Test linear interpolator by rendering a 2D shape
+	MuviIDWInterpolator ip(6);
+	render2D( Neighbours, ip );
