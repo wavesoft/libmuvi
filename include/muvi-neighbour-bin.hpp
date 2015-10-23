@@ -48,6 +48,11 @@ public:
 	static void 				loadFromStream( MuviNeighboursPtr& neighbours, istream * streamptr );
 
 	/**
+	 * Append neighbors from the given stream
+	 */
+	static void 				appendFromStream( MuviNeighboursPtr& neighbours, istream * streamptr );
+
+	/**
 	 * Save the given stream
 	 */
 	static void					saveToStream( const MuviNeighboursPtr& neighbours, ostream * streamptr );

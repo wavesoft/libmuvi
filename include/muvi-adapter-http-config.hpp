@@ -17,56 +17,54 @@
  * Developed by Ioannis Charalampidis 2013
  * Contact: <ioannis.charalampidis[at]cern.ch>
  */
-#ifndef MUVI_ADAPTER_HTTP_H
-#define MUVI_ADAPTER_HTTP_H
+#ifndef MUVI_ADAPTER_HTTP_CONFIG_H
+#define MUVI_ADAPTER_HTTP_CONFIG_H
 
-#include <curl/curl.h>
-#include <vector>
-
-#include "muvi-data.hpp"
-#include "muvi-store.hpp"
-#include "muvi-adapter-http-config.hpp"
-
+#include <string>
 using namespace std;
 
+#define MUVI_HTTP_GET		0
+#define MUVI_HTTP_POST		1
+#define MUVI_HTTP_PUT		3
+
 /**
- * Simple file-based disk store
+ * Base http class configuration
  */
-class MuviAdapterHTTP: 
-	public MuviStoreAdapter {
+class MuviHTTPConfig {
 public:
 
-	MuviAdapterHTTP( const MuviHTTPConfig& config );
-	virtual ~MuviAdapterHTTP();
+	/**
+	 * Parametrizable get/put URLs
+	 */
+	string 					putURL;
+	string 					getURL;
 
 	/**
-	 * Open and start reading the given chunk
+	 * I/O Verb for each url
 	 */
-	virtual istream *		openReadStream( const string& index );
+	unsigned char 			putVerb;
+	unsigned char 			gutVerb;
 
 	/**
-	 * Set indexed chunk
+	 
 	 */
-	virtual ostream *		openWriteStream( const string& index );
 
-	/**
-	 * Close a stream oppened with open*Stream
-	 */
-	virtual void 			closeStream( ios * stream );
+};
 
-private:
+/**
+ * RIAK-Preconfigured HTTP Configuration
+ */
+class MuviRiakHTTPConfig: 
+	public MuviHTTPConfig {
+public:
 
-	/**
-	 * Curl object to perform I/O
-	 */
-	CURL *					curl;
-
-	/**
-	 * HTTP Behaviour configuration
-	 */
-	const MuviHTTPConfig	config;
+	MuviRiakHTTPConfig( const string& server, const string& bucket ) : MuviHTTPConfig() {
+		this->getURL = "http://" + server + "/riak/" + bucket + "/$K";
+		this->getVerb = MUVI_HTTP_GET;
+		this->putURL = "http://" + server + "/riak/" + bucket + "/$K";
+		this->putVerb = MUVI_HTTP_PUT;
+	};
 
 };
 
 #endif /* End of include guard */
-

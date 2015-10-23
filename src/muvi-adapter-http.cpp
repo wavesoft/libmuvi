@@ -21,11 +21,69 @@
 #include "muvi-adapter-http.hpp"
 
 /**
+ * Memcache I/O buffer
+ */
+class httpbuf : public streambuf
+{
+public:
+
+	/**
+	 * Constructor of the memcache I/O buffer
+	 */
+	httpbuf( CURL* curl, const MuviHTTPConfig& config ) :
+		memc(memc), curl(curl), config(config), sbuf("") { }
+
+	/**
+	 * Synchronize on destructor
+	 */
+	virtual ~httpbuf() {
+		this->sync();
+	}
+
+	/**
+	 * OUT: Write data to the given buffer
+	 */
+	streamsize xsputn (const char* s, streamsize n) {
+		sbuf.append(s,n);
+		return n;
+	}
+
+	/**
+	 * Syncrhonize key
+	 */
+	int sync() {
+		memcached_return_t rc= memcached_set(memc, key, strlen(key), sbuf.c_str(), sbuf.length(), (time_t)0, (uint32_t)0);
+		if (rc != MEMCACHED_SUCCESS) {
+			return -1;
+		} else {
+			return 0;
+		}
+	}
+
+private:
+
+	/**
+	 * Local properties
+	 */
+	CURL *					curl;
+	const MuviHTTPConfig	config;
+	string					sbuf;
+
+};
+
+/**
  * Initialize CURL on constructor
  */
-MuviAdapterHTTP::MuviAdapterHTTP( ) :
-	MuviStoreAdapter() {
-
-	
-
+MuviAdapterHTTP::MuviAdapterHTTP( const MuviHTTPConfig& config ) :
+	MuviStoreAdapter(), config(config) 
+{
+	curl = curl_easy_init();
 }
+
+/**
+ * Cleanup CURL on destructor
+ */
+MuviAdapterHTTP::~MuviAdapterHTTP() {
+	curl_free( curl );
+}
+

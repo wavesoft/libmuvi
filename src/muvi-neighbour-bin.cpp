@@ -26,7 +26,7 @@
 /**
  * Load from the given stream
  */
-void MuviNeighbourBin::loadFromStream( MuviNeighboursPtr& neighbours, istream * streamptr ) {
+void MuviNeighbourBin::appendFromStream( MuviNeighboursPtr& neighbours, istream * streamptr ) {
 
 	// Validate magic signature
 	char m1,m2; // For making sure the data were written by us
@@ -44,14 +44,12 @@ void MuviNeighbourBin::loadFromStream( MuviNeighboursPtr& neighbours, istream * 
 	// Read the number of neighbours in the chunk
 	streamptr->read( (char*)&numNeighbors, sizeof(unsigned int) );
 
-	// Reset neighbour buffer
-	neighbours->neighbourData.clear();
-	neighbours->neighbourIndex.clear();
-	neighbours->neighbourData.resize(numNeighbors);
-	neighbours->neighbourIndex.resize(numNeighbors);
+	// Resize neighbour buffer
+	neighbours->neighbourData.resize( neighbours->neighbourData.size() + numNeighbors);
+	neighbours->neighbourIndex.resize( neighbours->neighbourIndex.size() + numNeighbors);
 
 	// Start reading neighbor data
-	for (unsigned int i=0; i<numNeighbors; i++) {
+	for (unsigned int i=neighbours->neighbourIndex.size(); i<neighbours->neighbourIndex.size()+numNeighbors; i++) {
 
 		// Allocate values & index buffer
 		MuviDataValues dValues = boost::make_shared<MuviValues>();
@@ -81,6 +79,21 @@ void MuviNeighbourBin::loadFromStream( MuviNeighboursPtr& neighbours, istream * 
 	}
 
 }
+
+/**
+ * Load from the given stream
+ */
+void MuviNeighbourBin::loadFromStream( MuviNeighboursPtr& neighbours, istream * streamptr ) {
+
+	// Reset neighbour buffer
+	neighbours->neighbourData.clear();
+	neighbours->neighbourIndex.clear();
+
+	// Append neighbors
+	this->appendFromStream( neighbours, streamptr );
+
+}
+
 
 /**
  * Save the given stream

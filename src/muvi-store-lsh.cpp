@@ -50,7 +50,7 @@ typedef union {
  */
 string MuviStoreLSH::calculateHash( const MuviIndexValues& index ) {
 
-	// We use a slightly different base64 character set
+	// We use a slightly modified base64 character set
 	static const char b64_table[65] = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+_";
 	static fast_b64 fastb;
 
